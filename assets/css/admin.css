@@ -1,0 +1,482 @@
+/* ========================================
+   RoomCampus - Admin Panel Styles
+   ======================================== */
+
+:root {
+    --sidebar-width: 260px;
+    --sidebar-bg: linear-gradient(180deg, #1e1e2f 0%, #2d2d44 100%);
+    --primary-color: #667eea;
+    --primary-dark: #5a6fd6;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: #f0f2f5;
+    overflow-x: hidden;
+}
+
+/* ========================================
+   Sidebar
+   ======================================== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    background: var(--sidebar-bg);
+    color: #fff;
+    z-index: 1050;
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-speed) ease;
+}
+
+.sidebar-header {
+    padding: 24px 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-logo {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.sidebar-nav {
+    flex: 1;
+    padding: 16px 12px;
+    overflow-y: auto;
+}
+
+.sidebar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+    transition: all var(--transition-speed) ease;
+    text-decoration: none;
+}
+
+.sidebar-nav .nav-link i {
+    font-size: 1.1rem;
+    margin-right: 12px;
+    width: 22px;
+    text-align: center;
+}
+
+.sidebar-nav .nav-link:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-nav .nav-link.active {
+    color: #fff;
+    background: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.sidebar-footer {
+    padding: 16px 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-footer .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all var(--transition-speed) ease;
+}
+
+.sidebar-footer .nav-link i {
+    margin-right: 12px;
+}
+
+.sidebar-footer .nav-link:hover {
+    color: #fff !important;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* ========================================
+   Main Content
+   ======================================== */
+.main-content {
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+    transition: margin-left var(--transition-speed) ease;
+}
+
+/* ========================================
+   Top Navbar
+   ======================================== */
+.top-navbar {
+    background: #fff;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e9ecef;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.sidebar-toggle {
+    display: none;
+    padding: 0;
+}
+
+.admin-avatar {
+    width: 36px;
+    height: 36px;
+    background: var(--primary-color);
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1rem;
+}
+
+/* ========================================
+   Content Area
+   ======================================== */
+.content-area {
+    padding: 24px;
+}
+
+/* ========================================
+   Stat Cards
+   ======================================== */
+.stat-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    border-left: 4px solid transparent;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+/* Stat Variants */
+.stat-total {
+    border-left-color: var(--primary-color);
+}
+
+.stat-total .stat-icon {
+    background: rgba(102, 126, 234, 0.1);
+    color: var(--primary-color);
+}
+
+.stat-pending {
+    border-left-color: #ffc107;
+}
+
+.stat-pending .stat-icon {
+    background: rgba(255, 193, 7, 0.1);
+    color: #ffc107;
+}
+
+.stat-approved {
+    border-left-color: #28a745;
+}
+
+.stat-approved .stat-icon {
+    background: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+}
+
+.stat-rejected {
+    border-left-color: #dc3545;
+}
+
+.stat-rejected .stat-icon {
+    background: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+}
+
+/* ========================================
+   Table
+   ======================================== */
+.table th {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #6c757d;
+    font-weight: 600;
+    border-bottom: 2px solid #e9ecef;
+    padding: 14px 12px;
+}
+
+.table td {
+    padding: 14px 12px;
+    vertical-align: middle;
+    font-size: 0.9rem;
+}
+
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background-color: #f8f9ff;
+}
+
+/* ========================================
+   Badges
+   ======================================== */
+.badge {
+    font-weight: 500;
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+/* ========================================
+   Cards in Table Area
+   ======================================== */
+.card {
+    border-radius: 14px;
+}
+
+.card-header {
+    border-radius: 14px 14px 0 0 !important;
+}
+
+/* ========================================
+   Filter Form Controls
+   ======================================== */
+.content-area .form-control,
+.content-area .form-select {
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    font-size: 0.9rem;
+    padding: 8px 12px;
+}
+
+.content-area .form-control:focus,
+.content-area .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.15);
+}
+
+/* ========================================
+   Buttons
+   ======================================== */
+.btn-group-sm > .btn {
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+.btn-group > .btn:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.btn-group > .btn:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* ========================================
+   Modal
+   ======================================== */
+.modal-content {
+    border-radius: 16px;
+}
+
+.modal-header {
+    padding: 20px 24px;
+}
+
+.modal-body {
+    padding: 16px 24px;
+}
+
+.modal-footer {
+    padding: 16px 24px;
+}
+
+.modal-body .table td {
+    padding: 8px 0;
+    font-size: 0.9rem;
+    border: none;
+}
+
+/* ========================================
+   Sidebar Overlay (Mobile)
+   ======================================== */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+    backdrop-filter: blur(2px);
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+@media (max-width: 991.98px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.show {
+        transform: translateX(0);
+    }
+
+    .sidebar-overlay.show {
+        display: block;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .sidebar-toggle {
+        display: block;
+    }
+
+    .content-area {
+        padding: 16px;
+    }
+
+    .top-navbar {
+        padding: 12px 16px;
+    }
+
+    .page-title {
+        font-size: 1.1rem;
+    }
+
+    .stat-card {
+        padding: 14px;
+    }
+
+    .stat-number {
+        font-size: 1.2rem;
+    }
+
+    .stat-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .stat-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+        padding: 12px;
+    }
+
+    .stat-number {
+        font-size: 1.1rem;
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
+    }
+}
+
+/* ========================================
+   Scrollbar
+   ======================================== */
+.sidebar-nav::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar-nav::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stat-card,
+.card {
+    animation: fadeInUp 0.4s ease forwards;
+}
+
+.peminjaman-card {
+    transition: all 0.2s ease;
+}
+
+.peminjaman-card:hover {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
+}
